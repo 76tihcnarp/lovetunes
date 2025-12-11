@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:white;display:flex;justify-content:center;align-items:center;height:100vh;">
+    <h2>Authenticating with Google...</h2>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script>
+        function handleCredentialResponse(response) {
+            if (response.credential) {
+                alert("Logged in with Google!");
+                window.location.href = "/demo.html";
+            } else {
+                alert("Google login failed");
+                window.location.href = "/login.html";
+            }
+        }
+
+        window.onload = () => {
+            google.accounts.id.initialize({
+                client_id: "936239100202-b2jbfoq77ovp94lsi4g2oquuf4ocumdb.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+
+            google.accounts.id.prompt();
+        }
+    </script>
+</body>
+</html>
