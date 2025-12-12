@@ -30,14 +30,16 @@
           </div> 
          
           <div class="player">
-          <div style="background-color: aqua; height: 200px; margin-top: 15px; width: 200px;align-self: center;border-radius: 5%;"></div>
-           <div style="align-self: center;">track name</div>
-           <div style="align-self: center;"> artist name</div>
+          <div id="mini-cover" style="background-color: rgba(105, 9, 86, 0.575); height: 200px; margin-top: 15px; width: 200px; align-self: center; border-radius: 5%;"></div>
+           <div id="mini-title" style="align-self: center;"></div>
+           <div id="mini-artist" style="align-self: center;"></div>
+
            <div class="sprogress"></div>
               <div class="tools">
-                  <div class="miniplay"><img class="miniplay" src="./cover arts/elements/prev-track-button.png"></div>
-                  <div class="miniplay"><img class="miniplay" src="./cover arts/elements/play-button.png"></div>
-                  <div class="miniplay"><img class="miniplay" src="./cover arts/elements/next-track-button.png"></div>
+               <div class="miniplay"><img id="prev-btn" class="miniplay" src="./cover arts/elements/prev-track-button.png"></div>
+              <div class="miniplay"><img id="play-btn" class="miniplay" src="./cover arts/elements/play-button.png"></div>
+              <div class="miniplay"><img id="next-btn" class="miniplay" src="./cover arts/elements/next-track-button.png"></div>
+
               </div>
                </div>
               
@@ -62,17 +64,17 @@
          <h2>New Releases ꨄ︎</h2><br>
          <div class="newrow">
 
-            <div class="trackbox">
-            <div><img class="cover" src="cover arts/singles/badidearight.jpeg"></div>
-            <div class="play"> <img class="play-button" src="./cover arts/elements/play-button.png"></div>
-            <p>bad idea right?</p>
-            <p class="artistname">olivia rodrigo</p>
+                 <div class="trackbox">
+            <div><img class="cover" src="./cover arts\singles\gala.jpg"></div>
+             <div class="play"> <img class="play-button" data-audio="../music/gala.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>gala</p>
+            <p class="artistname">xg</p>
             </div>
 
             <div class="trackbox">
             <div><img class="cover" src="./cover arts/singles/dirty work.png"></div>
              <div class="play"> <img class="play-button" data-audio="../music/dirty work.mp3" src="./cover arts/elements/play-button.png"></div>
-            <p>rich man</p>
+            <p>dirty work</p>
             <p class="artistname">aespa</p>
             </div>
 
@@ -99,7 +101,7 @@
 
             <div class="trackbox">
             <div><img class="cover" src="cover arts/singles/whitecat.jpeg"></div>
-             <div class="play"> <img class="play-button" data-audio="./music/sphagetti.mp3" src="./cover arts/elements/play-button.png"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/whitecat.mp3" src="./cover arts/elements/play-button.png"></div>
             <p>white cat</p>
             <p class="artistname">yves</p>
             </div>
@@ -112,7 +114,7 @@
          <div class="list a">
          <div class="track">
           <div class="details"> 
-           <div class="detailscover"><img src="./cover arts/singles/ditto.jpeg" alt="cover">  <img class="detailsplay play-button" data-audio="./music/sphagetti.mp3" src="./cover arts/elements/play-button.png"></div>
+           <div class="detailscover"><img  src="./cover arts/singles/ditto.jpeg" >  <img class="detailsplay play-button" data-audio="../music/ditto.mp3" src="./cover arts/elements/play-button.png"></div>
            <div class="detailsinfo"> <p class="detailstitle">Ditto</p><p class="detailsartist">NewJeans</p></div><button class="detailslike">♡</button>
           </div>
          </div>
@@ -233,7 +235,7 @@
 
             <div class="trackbox">
             <div><img class="cover" src="./cover arts/singles/ditto.jpeg"></div>
-             <div class="play"> <img class="play" src="./cover arts/elements/play-button.png"></div>
+             <div class="play"> <img class="play-button" data-audio="../music/ditto.mp3" src="./cover arts/elements/play-button.png"></div>
             <p>ditto</p>
             <p class="artistname">newjeans</p>
             </div>
@@ -312,7 +314,7 @@
 
             <div class="trackbox">
             <div><img class="cover" src="./cover arts/albums/unforgiven.jpeg"></div>
-             <div class="play"> <img class="play" src="./cover arts/elements/play-button.png"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/unforgiven.mp3"  src="./cover arts/elements/play-button.png"></div>
             <p>unforgiven</p>
             <p class="artistname">le sserafim</p>
             </div>
@@ -346,11 +348,12 @@
             </div>
 
             <div class="trackbox">
-            <div><img class="cover" src="./cover arts\singles\gala.jpg"></div>
-             <div class="play"> <img class="play" src="./cover arts/elements/play-button.png"></div>
-            <p>gala</p>
-            <p class="artistname">xg</p>
+            <div><img class="cover" src="cover arts/singles/badidearight.jpeg"></div>
+            <div class="play"> <img class="play-button" src="./cover arts/elements/play-button.png"></div>
+            <p>bad idea right?</p>
+            <p class="artistname">olivia rodrigo</p>
             </div>
+
             <br>
          </div>
 
@@ -376,34 +379,8 @@
 
 
 </div>
-    
-
+<audio id="audio"></audio>
 <script>
-  let currentAudio = null;
-  let currentSrc = null;
-
-  document.querySelectorAll('.play-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const audioSrc = button.getAttribute('data-audio');
-
-      // same song clicked again
-      if (currentAudio && currentSrc === audioSrc) {
-        if (currentAudio.paused) {
-          currentAudio.play();
-        } else {
-          currentAudio.pause();
-        }
-        return;
-      }
-
-      // new song clicked
-      if (currentAudio) currentAudio.pause();
-
-      currentAudio = new Audio(audioSrc);
-      currentSrc = audioSrc;
-      currentAudio.play();
-    });
-  });
   document.querySelectorAll('.detailslike').forEach(btn => {
     btn.addEventListener('click', () => btn.classList.toggle('liked'));
 });
@@ -412,9 +389,100 @@ document.getElementById("hamburger").addEventListener("click", () => {
     document.querySelector(".sidebar").classList.toggle("close");
 });
 
+const audio = document.getElementById("audio");
+const miniCover = document.getElementById("mini-cover");
+const miniTitle = document.getElementById("mini-title");
+const miniArtist = document.getElementById("mini-artist");
+const playBtnImg = document.getElementById("play-btn"); // make sure this is the <img>
+const nextBtn = document.getElementById("next-btn");
+const prevBtn = document.getElementById("prev-btn");
+
+let currentIndex = 0;
+const tracks = [];
+
+// Collect only trackboxes with real audio
+document.querySelectorAll(".detailsplay, .play-button").forEach(btn => {
+    const trackboxParent = btn.closest(".trackbox");
+    const trackParent = btn.closest(".track");
+
+    let title, artist, cover, audioSrc;
+    audioSrc = btn.dataset.audio;
+    if (!audioSrc) return; // skip if no audio
+
+    if (trackboxParent) {
+        title = trackboxParent.querySelector("p")?.innerText;
+        artist = trackboxParent.querySelector(".artistname")?.innerText || "";
+        cover = trackboxParent.querySelector(".cover")?.src;
+    } else if (trackParent) {
+        title = trackParent.querySelector(".detailstitle")?.innerText;
+        artist = trackParent.querySelector(".detailsartist")?.innerText || "";
+        // Grab the cover image that is a sibling of the clicked button
+        cover = btn.closest(".detailscover")?.querySelector("img:not(.detailsplay)")?.src;
+    }
+
+    if (!cover || !title || !audioSrc) return;
+
+    tracks.push({ title, artist, cover, audioSrc });
+
+    btn.addEventListener("click", () => {
+        currentIndex = tracks.findIndex(t => t.audioSrc === audioSrc);
+        loadAndPlay(currentIndex);
+    });
+});
+
+
+
+
+function loadAndPlay(index) {
+    const song = tracks[index];
+    audio.src = song.audioSrc;
+    audio.play();
+    miniCover.style.backgroundImage = `url("${song.cover}")`;
+    miniTitle.innerText = song.title;
+    miniArtist.innerText = song.artist;
+    playBtnImg.src = "./cover arts/elements/pause-button.jpg";
+}
+
+playBtnImg.addEventListener("click", () => {
+    if(audio.paused) {
+        audio.play();
+        playBtnImg.src = "./cover arts/elements/pause-button.jpg";
+    } else {
+        audio.pause();
+        playBtnImg.src = "./cover arts/elements/play-button.png";
+    }
+});
+
+nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % tracks.length;
+    loadAndPlay(currentIndex);
+});
+
+prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + tracks.length) % tracks.length;
+    loadAndPlay(currentIndex);
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") {
+        e.preventDefault(); 
+        if (audio.paused) {
+            audio.play();
+            playBtnImg.src = "./cover arts/elements/pause-button.jpg";
+        } else {
+            audio.pause();
+            playBtnImg.src = "./cover arts/elements/play-button.png";
+        }
+        
+    }
+});
+
 
 </script>
 
 
+
 </body>
+
+
 </html>
