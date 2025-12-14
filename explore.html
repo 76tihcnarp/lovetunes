@@ -18,102 +18,140 @@
          <div  style="border-radius: 15px; padding: 5px; background-color: #212020;height: 50px;width:550px">
          <input type="text" placeholder="  search music, artists,albums  🔎︎"   style= " border-radius: 10px; width: 500px; height: 40px; border: 3px solid #0e0202; background-color: #211e1e; padding: 3px; color: white;">
          <button type="submit" style="background-color: #2c2b2b ;width:35px;height: 35px;border-radius: 15%;">🔎︎</button> </div>
+         
          <a href="login.html"><img class="logo" src="./cover arts//elements/user.png"></a>
     </div>
 
     <div class="sidebar">
    <div class="panel"><center><h2>hey, listener!</h2></center></div>
             
-          <div class="panel">
+            <div class="panel">
+             <a class="menu" href="discover.html">Discover ⟰ </a>
             <a class="menu" href="explore.html">Explore ⬲</a>
-             <a class="menu" href="junction.html">Junction ⟰ </a>
+            
           </div> 
          
           <div class="player">
-          <div style="background-color: aqua; height: 200px; margin-top: 15px; width: 200px;align-self: center;border-radius: 5%;"></div>
-           <div style="align-self: center;">track name</div>
-           <div style="align-self: center;"> artist name</div>
+          <div id="mini-cover" style="background-color: rgba(38, 36, 38, 0.53); height: 200px; margin-top: 15px; width: 200px; align-self: center; border-radius: 5%;"></div>
+           <div id="mini-title" style="align-self: center;"></div>
+           <div id="mini-artist" style="align-self: center;"></div>
+
            <div class="sprogress"></div>
               <div class="tools">
-                  <div class="miniplay"><img class="miniplay" src="./cover arts/elements/prev-track-button.png"></div>
-                  <div class="miniplay"><img class="miniplay" src="./cover arts/elements/play-button.png"></div>
-                  <div class="miniplay"><img class="miniplay" src="./cover arts/elements/next-track-button.png"></div>
+               <div class="miniplay"><img id="prev-btn" class="miniplay" src="./cover arts/elements/prev-track-button.png"></div>
+              <div class="miniplay"><img id="play-btn" class="miniplay" src="./cover arts/elements/play-button.png"></div>
+              <div class="miniplay"><img id="next-btn" class="miniplay" src="./cover arts/elements/next-track-button.png"></div>
+
               </div>
                </div>
               
     </div>
 
 
-   
-
-
-
-
     <div class="window">
-         <div class="newrow">
-         
 
-            <a class="sec" href="discover.html">Discover</a>
-            <a class="sec" href="#foryou">For You</a>
-            <a class="sec" href="#liveperf">Live Performances</a>
-             <a class="sec" href="#interv">Interviews</a>
+       <h2 id="foryou">Explore merch from your favourite artists...</h2>
+
+         <div class="newrow">
+            <a class="sec" href="#lesserafim">Le sserafim</a>
+            <a class="sec" href="#illit">Illit</a>
+            <a class="sec" href="#nwjns">NewJeans</a>
+             <a class="sec" href="#bm">BabyMonster</a>
+             <a class="sec" href="#idle">(G)-idle</a>
+             <a class="sec" href="#h2h">hearts2hearts</a>
+             
+         </div>
+         <h2>Le sserafim</h2>
+        <iframe class="merch" id="lesserafim" src="https://shop.weverse.io/en/shop/USD/artists/50/categories/987?excludeSoldOut=true"></iframe>
+          <h2>NewJeans</h2>
+        <iframe class="merch" id="nwjns" src="https://shop.weverse.io/en/shop/USD/artists/82/categories/1121?excludeSoldOut=true"></iframe>
+          <h2>BabyMonster</h2>
+         <iframe class="merch" id="bm" src="https://shop.weverse.io/en/shop/USD/artists/172/categories/3864?excludeSoldOut=true"></iframe>
+          <h2>Illit</h2>
+        <iframe class="merch" id="illit" src="https://shop.weverse.io/en/shop/USD/artists/120/categories/3859?excludeSoldOut=true"></iframe>
+          <h2>(G)-idle</h2>
+        <iframe class="merch" id="idle" src="https://shop.weverse.io/en/shop/USD/artists/113/categories/1968?excludeSoldOut=true"></iframe>
+          <h2>hearts2hearts</h2>
+         <iframe class="merch" id="h2h" src="https://shop.weverse.io/en/shop/USD/artists/213/categories/5328?excludeSoldOut=true"></iframe>
+
+
+
+                 <h2 id="foryou">For You</h2><br>
+           <div class="newrow">
+            <div class="trackbox">
+            <div><img class="cover" src="./cover arts/singles/ido.jpg"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/ido.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>i do</p>
+            <p class="artistname">(g)i-dle</p>
+            </div>
+
+            
+            <div class="trackbox">
+            <div><img class="cover" src="./cover arts/albums/cruelsummer.jpg"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/cruelsummer.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>cruel summer</p>
+            <p class="artistname">taylor swift</p>
+            </div>
+
+            <div class="trackbox">
+            <div><img class="cover" src="./cover arts/singles/attention.jpg"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/attention.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>attention</p>
+            <p class="artistname">newjeans</p>
+            </div>
+
+            <div class="trackbox">
+            <div><img class="cover" src="./cover arts/singles/queencard.jpg"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/queencard.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>queencard</p>
+            <p class="artistname">(g)i-dle</p>
+            </div>
+
+
+             <div class="trackbox">
+            <div><img class="cover" src="/cover arts/singles/espresso.jpeg"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/espresso.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>espresso</p>
+            <p class="artistname">sabrina carpenter</p>
+            </div>
+
+            <div class="trackbox">
+            <div><img class="cover" src="./cover arts/singles/supernova.jpeg"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/supernova.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>supernova</p>
+            <p class="artistname">aespa</p>
+            </div>
+
+             <div class="trackbox">
+            <div><img class="cover" src="./cover arts/singles/bandaids.png"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/bandaids.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>bandaids</p>
+            <p class="artistname">katy perry</p>
+            </div>
+
+            <div class="trackbox">
+            <div><img class="cover" src="./cover arts\singles/nwjns.png"></div>
+             <div class="play"> <img class="play-button" data-audio="./music/how sweet.mp3" src="./cover arts/elements/play-button.png"></div>
+            <p>how sweet</p>
+            <p class="artistname">newjeans</p>
+            </div>
+            
+            <br>
          </div>
 
-         
+<div id="end"><center> <p>© 2025 lovetunes. All rights reserved.</p> <p>made by prx.</p></center></div>
 
-<div id="end">
-   <center> <p>© 2025 lovetunes. All rights reserved.</p>
-  <p>made by prx.</p></center>
-</div>
-
-
-
-
-
-
+<audio id="audio"></audio>
     </div>
-
-
 </div>
-    
 
-<script>
-  let currentAudio = null;
-  let currentSrc = null;
-
-  document.querySelectorAll('.play-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const audioSrc = button.getAttribute('data-audio');
-
-      // same song clicked again
-      if (currentAudio && currentSrc === audioSrc) {
-        if (currentAudio.paused) {
-          currentAudio.play();
-        } else {
-          currentAudio.pause();
-        }
-        return;
-      }
-
-      // new song clicked
-      if (currentAudio) currentAudio.pause();
-
-      currentAudio = new Audio(audioSrc);
-      currentSrc = audioSrc;
-      currentAudio.play();
-    });
-  });
-  document.querySelectorAll('.detailslike').forEach(btn => {
-    btn.addEventListener('click', () => btn.classList.toggle('liked'));
-});
-
-document.getElementById("hamburger").addEventListener("click", () => {
-    document.querySelector(".sidebar").classList.toggle("close");
-});
-
+<script src="demo.js">
 
 </script>
 
 
+
 </body>
+
+
 </html>
