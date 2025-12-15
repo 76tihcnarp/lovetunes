@@ -60,6 +60,13 @@ function loadAndPlay(index) {
     playBtnImg.src = "./cover arts/elements/pause-button.jpg";
 }
 
+audio.addEventListener("ended", () => {
+  if (!tracks.length) return;
+
+  currentIndex = (currentIndex + 1) % tracks.length;
+  loadAndPlay(currentIndex);
+});
+
 playBtnImg.addEventListener("click", () => {
     if(audio.paused) {
         audio.play();
@@ -200,3 +207,16 @@ document.getElementById("dontClick").onclick = () => {
 
     setTimeout(() => location.reload(), 10000);
 };
+
+
+function openPopup() {
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  window.onclick = function(event) {
+    const popup = document.getElementById('popup');
+    const content = document.querySelector('.popup-content');
+    if (event.target === popup) {
+      popup.style.display = 'none';
+    }
+  }
