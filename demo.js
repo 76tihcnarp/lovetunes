@@ -10,21 +10,20 @@ const audio = document.getElementById("audio");
 const miniCover = document.getElementById("mini-cover");
 const miniTitle = document.getElementById("mini-title");
 const miniArtist = document.getElementById("mini-artist");
-const playBtnImg = document.getElementById("play-btn"); // make sure this is the <img>
+const playBtnImg = document.getElementById("play-btn"); 
 const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
 
 let currentIndex = 0;
 const tracks = [];
 
-// Collect only trackboxes with real audio
 document.querySelectorAll(".detailsplay, .play-button").forEach(btn => {
     const trackboxParent = btn.closest(".trackbox");
     const trackParent = btn.closest(".track");
 
     let title, artist, cover, audioSrc;
     audioSrc = btn.dataset.audio;
-    if (!audioSrc) return; // skip if no audio
+    if (!audioSrc) return; 
 
     if (trackboxParent) {
         title = trackboxParent.querySelector("p")?.innerText;
@@ -33,7 +32,7 @@ document.querySelectorAll(".detailsplay, .play-button").forEach(btn => {
     } else if (trackParent) {
         title = trackParent.querySelector(".detailstitle")?.innerText;
         artist = trackParent.querySelector(".detailsartist")?.innerText || "";
-        // Grab the cover image that is a sibling of the clicked button
+       
         cover = btn.closest(".detailscover")?.querySelector("img:not(.detailsplay)")?.src;
     }
 
